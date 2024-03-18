@@ -80,7 +80,14 @@ def lu_solve(A_b):
         print("{:.6f}".format(x))
     print(bcolors.ENDC)
 
-
+# Date: 18.3.24
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git:https://github.com/IMrMoon/SegevAnaliza.git
+# Name: Segev Chen
 if __name__ == '__main__':
     np.set_printoptions(suppress=True, precision=4)
     # A_b = [[1, -1, 2, -1, -8],

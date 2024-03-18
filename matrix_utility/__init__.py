@@ -35,27 +35,27 @@ def DominantDiagonalFix(matrix,b):
     :return: Change the matrix to a dominant diagonal
     """
     #Check if we have a dominant for each column
-    dom = [0]*len(matrix)
-    result = list()
-    new_b = list()
-   # Find the largest organ in a row
+    # Check if we have a dominant for each row
+    dom = [0] * len(matrix)
+    result = []
+    new_b = []
+    # Find the largest diagonal element in a row
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
-            if (matrix[i][j] > sum(map(abs,map(int,matrix[i])))-matrix[i][j]) :
-                dom[i]=j
+            if matrix[i][j] > sum(map(abs, map(int, matrix[i]))) - matrix[i][j]:
+                dom[i] = j
     for i in range(len(matrix)):
         result.append([])
-        # Cannot dominant diagonal
+        # If we cannot achieve a dominant diagonal, return the original matrix and vector
         if i not in dom:
             print("Couldn't find dominant diagonal.")
-            return matrix,b
-    # Change the matrix to a dominant diagonal
-    for i,j in enumerate(dom):
-        result[j]=(matrix[i])
+            return matrix, b
+    # Change the matrix to have a dominant diagonal
+    for i, j in enumerate(dom):
+        result[j] = matrix[i]
         new_b.append(b[j])
-    print("sucsess to make dominant diagonal with row change")
-    return result,new_b
-
+    print("Success in making dominant diagonal with row change")
+    return result, new_b
 
 def swap_rows_elementary_matrix(n, row1, row2):
     elementary_matrix = np.identity(n)

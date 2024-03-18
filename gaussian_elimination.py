@@ -110,22 +110,22 @@ def backward_substitution(mat):
     return x
 
 
-# Date: 19.2.24
+# Date: 18.3.24
 # Group members:
 # Segev Chen 322433400
 # Gad Gadi Hasson 207898123
 # Carmel Dor 316015882
 # Artiom Bondar 332692730
-# Git: https://github.com/IMrMoon/matrix1.git
+# Git: https://github.com/IMrMoon/SegevAnaliza.git
 # Name: Segev Chen
 if __name__ == '__main__':
 
     np.set_printoptions(suppress=True, precision=4)
-    A_b = [[-1,1,3, -3, 1,3],
-            [3, -3, -4,2,3,8],
-            [2, 1, -5,-3,5,2],
-            [-5,-6,4,1,3,14],
-            [3,-2,-2,-3,5,6]]
+    A_b = [[2,3,4, 5, 6,92],
+            [-5, 3, 4,-2,3,22],
+            [4, -5, -2,2,6,42],
+            [4,5,-1,-2,-3,-22],
+            [5,5,3,-3,5,41]]
 
     result = gaussianElimination(A_b)
     if isinstance(result, str):

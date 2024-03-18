@@ -32,8 +32,6 @@ Returns variables:
 
 
 def bisection_method(f, a, b, tol=1e-6):
-    # if np.sign(a) == np.sign(b):
-    #     raise Exception("The scalars a and b do not bound a root")
     c, k = 0, 0
     steps = max_steps(a, b, tol)  # calculate the max steps possible
 
@@ -43,6 +41,8 @@ def bisection_method(f, a, b, tol=1e-6):
     while abs(b - a) > tol and k <= steps:
         c = (a + b) / 2  # Calculation of the middle value
 
+        if c == 0:
+            return 0
         if f(c) == 0:
             return c  # Procedure completed successfully
 
@@ -63,18 +63,26 @@ def find_all_roots(f, a, b, tol=1e-6):
 
     for i in range(len(x) - 1):
         if np.sign(f(x[i])) != np.sign(f(x[i + 1])):
-            root = bisection_method(f, x[i], x[i + 1], tol)
-            roots.append(root)
+            root = np.round(bisection_method(f, x[i], x[i + 1], tol), 7)
+            if (not any(abs(x - root) < 0.000001 for x in roots)) and (0 == np.round(f(root), 2)):
+                roots.append(root)
 
     return roots
 
-
+# Date: 18.3.24
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git:https://github.com/IMrMoon/SegevAnaliza.git
+# Name: Segev Chen
 if __name__ == '__main__':
-    f = lambda x: x**2 - 4
+    f = lambda x: (x**5 -6*x**2 -1) / (7*x**3 + 1)
 
     # Adjust the interval to avoid the singularity
     a = -2
-    b = 5
+    b = 2
 
     roots = find_all_roots(f, a, b)
     print(bcolors.OKBLUE, f"\nThe equation f(x) has approximate roots at {roots}", bcolors.ENDC)
