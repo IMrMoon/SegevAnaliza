@@ -2,6 +2,7 @@
 from colors import bcolors
 
 
+
 def trapezoidal_rule(f, a, b, n):
     if a > b:
         a, b = b, a
