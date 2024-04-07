@@ -73,7 +73,7 @@ def SolveLU(matrix, vector):
     return MultiplyMatrix(InverseMatrix(matrixU), MultiplyMatrix(InverseMatrix(matrixL), vector))
 
 
-def solveMatrix(matrixA,vectorb):
+def solveMatrix(matrixA, vectorb):
     detA = Determinant(matrixA, 1)
     print(bcolors.YELLOW, "\nDET(A) = ", detA)
 
