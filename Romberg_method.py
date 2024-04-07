@@ -3,7 +3,7 @@ from colors import bcolors
 
 
 def romberg_integration(func, a, b, n):
-    counter = 0
+    counter = 1
     """
     Romberg Integration
 
@@ -42,13 +42,13 @@ def romberg_integration(func, a, b, n):
 
 
 def f(x):
-    return 1/(2+x ** 4)
+    return x**3
 
 
 if __name__ == '__main__':
 
-    a = 0
-    b = 1
+    a = -2
+    b = 2
     n = 5
     integral = romberg_integration(f, a, b, n)
 

@@ -30,9 +30,9 @@ def simpsons_rule(f, a, b, n):
     for i in range(1, n):
         x_i = a + i * h
         if i % 2 == 0:
-            integral += 2 * abs(f(x_i))
+            integral += 2 * f(x_i)
         else:
-            integral += 4 * abs(f(x_i))
+            integral += 4 * f(x_i)
 
     integral *= h / 3
 
