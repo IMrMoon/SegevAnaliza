@@ -1,12 +1,13 @@
-import math
 
 from colors import bcolors
 
 
 def trapezoidal_rule(f, a, b, n):
+    if a > b:
+        a, b = b, a
     h = (b - a) / n
     T = f(a) + f(b)
-    integral = 0.5 * T  # Initialize with endpoints
+    integral = ((b-a) * T) / 2  # Initialize with endpoints
 
     for i in range(1, n):
         x_i = a + i * h
@@ -14,10 +15,10 @@ def trapezoidal_rule(f, a, b, n):
 
     integral *= h
 
-    return integral
+    return abs(integral)
 
 
 if __name__ == '__main__':
-    f = lambda x: math.e ** (x ** 2)
-    result = trapezoidal_rule(f, 0, 1, 2)
+    f = lambda x: x**2
+    result = trapezoidal_rule(f, 0, 1, 10)
     print(bcolors.OKBLUE, "Approximate integral:", result, bcolors.ENDC)
