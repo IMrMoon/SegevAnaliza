@@ -35,20 +35,27 @@ def romberg_integration(func, a, b, n):
 
         if np.round(R[i - 1, i - 1], n) == np.round(R[i, i], n):
             print(counter)
-            return R[i, i]
+            return round(R[i, i], 5)
 
     print("we have reach maximum iterations {20}")
-    return R[n - 1, n - 1]
+    return R[19, 19]
 
 
 def f(x):
-    return x**3
+    return ((2*x + (np.cos(x**3 + 2*x**2 - 6))) / (x + (2 * np.exp(-2*x))))
 
-
+# Date: 8.4.24
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git:https://github.com/IMrMoon/SegevAnaliza.git
+# Name: Segev Chen
 if __name__ == '__main__':
 
-    a = -2
-    b = 2
+    a = -0.62
+    b = 3
     n = 5
     integral = romberg_integration(f, a, b, n)
 

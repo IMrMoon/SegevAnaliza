@@ -21,11 +21,13 @@ def polynomialInterpolation(table_points, x):
 
 
 if __name__ == '__main__':
-    table_points = [(1.2, 1.5095), (1.3, 1.6984), (1.4, 1.9043), (1.5, 2.1293), (1.6, 2.3756)]
-    x = 1.47
+    table_points = [(1.2, 1.2), (1.3, 2.3), (1.4, -0.5), (1.5, -0.89), (1.6, -1.37)]
+    x = 1.25
+    x2 = 1.55
     print(bcolors.OKBLUE, "----------------- Interpolation & Extrapolation Methods -----------------\n", bcolors.ENDC)
     print(bcolors.OKBLUE, "Table Points: ", bcolors.ENDC, table_points)
     print(bcolors.OKBLUE, "Finding an approximation to the point: ", bcolors.ENDC, x, '\n')
     polynomialInterpolation(table_points, x)
+    polynomialInterpolation(table_points, x2)
     print(bcolors.OKBLUE, "\n---------------------------------------------------------------------------\n",
           bcolors.ENDC)

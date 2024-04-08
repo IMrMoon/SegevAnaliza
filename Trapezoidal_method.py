@@ -1,6 +1,6 @@
 
 from colors import bcolors
-
+import numpy as np
 
 
 def trapezoidal_rule(f, a, b, n):
@@ -16,10 +16,10 @@ def trapezoidal_rule(f, a, b, n):
 
     integral *= h
 
-    return abs(integral)
+    return integral
 
 
 if __name__ == '__main__':
-    f = lambda x: x**2
-    result = trapezoidal_rule(f, 0, 1, 10)
+    f = lambda x: (np.sin(x**2 + 5*x + 6) / (2 * np.exp(-x)))
+    result = trapezoidal_rule(f, 2.1, 2.6, 4000)
     print(bcolors.OKBLUE, "Approximate integral:", result, bcolors.ENDC)

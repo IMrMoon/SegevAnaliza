@@ -36,14 +36,14 @@ def simpsons_rule(f, a, b, n):
 
     integral *= h / 3
 
-    return abs(np.round(integral, 4))
+    return np.round(integral, 4)
 
 
 if __name__ == '__main__':
-    f = lambda x: math.e ** (x ** 2)
-    n = 4
-    a = 0
-    b = 1
+    f = lambda x: (2*x + (np.cos(x**3 + 2*x**2 - 6)) / (x + (2 * np.exp(-2*x))))
+    n = 40
+    a = -0.62
+    b = 3
 
     print(f" Division into n={n} sections ")
     integral = simpsons_rule(f, a, b, n)
